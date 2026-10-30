@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume | Samreen Fatima</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary: #0066ff;
+        --primary-dark: #0047b3;
+        --bg: #0a0a0a;
+        --bg-card: #111111;
+        --border: #1f1f1f;
+        --text: #f5f5f5;
+        --text-muted: #a3a3a3;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+    }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+    .grid-bg {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image:
+            linear-gradient(rgba(0, 102, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 102, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 0;
+        pointer-events: none;
+    }
+    .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+    }
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4);
+    }
+    .glow-text { text-shadow: 0 0 30px rgba(0, 102, 255, 0.5); }
+    .row {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border);
+    }
+    .row:last-child { border-bottom: none; }
+    .cursor-glow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 102, 255, 0.18) 0%, rgba(0, 102, 255, 0.06) 40%, transparent 70%);
+        pointer-events: none;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+        will-change: transform;
+    }
+    .skill-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    .skill-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 102, 255, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+    .skill-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-4px);
+        box-shadow: 0 0 30px rgba(0, 102, 255, 0.25);
+    }
+    .skill-card:hover::before {
+        left: 100%;
+    }
+    @media print {
+        body { background: #fff; color: #000; }
+        .no-print { display: none !important; }
+        .grid-bg { display: none; }
+        .card { background: #fff; border: 1px solid #ddd; }
+    }
+    
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: var(--bg);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+        border-radius: 6px;
+        border: 2px solid var(--bg);
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary);
+    }
+    
+    html {
+        scrollbar-color: var(--primary) var(--bg);
+        scrollbar-width: thin;
+    }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="cursor-glow no-print" id="cursorGlow"></div>
+
+<div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+
+    <!-- Back link -->
+    <a href="index.html" class="no-print inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#0066ff] transition mb-8">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+        <p class="text-[#0066ff] text-sm font-semibold tracking-wider mb-3">RESUME</p>
+        <h1 class="text-4xl sm:text-5xl font-bold glow-text">SAMREEN FATIMA</h1>
+        <p class="text-gray-400 text-lg mt-3">Full Stack Fronted Developer</p>
+    </div>
+
+    <!-- Personal Details Card -->
+    <div class="card rounded-2xl p-8 sm:p-10 mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-[#0066ff]">Personal Details</h2>
+
+        <div class="row">
+            <i class="fas fa-user text-[#0066ff] text-xl mt-1 w-6"></i>
+            <div>
+                <span class="text-gray-500 text-sm">Name</span>
+                <p class="font-semibold text-lg">Samreen Fatima</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <i class="fas fa-birthday-cake text-[#0066ff] text-xl mt-1 w-6"></i>
+            <div>
+                <span class="text-gray-500 text-sm">Age</span>
+                <p class="font-semibold text-lg">19</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <i class="fas fa-venus text-[#0066ff] text-xl mt-1 w-6"></i>
+            <div>
+                <span class="text-gray-500 text-sm">Gender</span>
+                <p class="font-semibold text-lg">Female</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <i class="fas fa-graduation-cap text-[#0066ff] text-xl mt-1 w-6"></i>
+            <div>
+                <span class="text-gray-500 text-sm">Education</span>
+                <p class="font-semibold text-lg">Intermediate — Doing BS Computer Science</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <i class="fas fa-briefcase text-[#0066ff] text-xl mt-1 w-6"></i>
+            <div>
+                <span class="text-gray-500 text-sm">Profession</span>
+                <p class="font-semibold text-lg">Full STACK Fronted DEVELOPER</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <i class="fas fa-map-marker-alt text-[#0066ff] text-xl mt-1 w-6"></i>
+            <div>
+                <span class="text-gray-500 text-sm">Location</span>
+                <p class="font-semibold text-lg">Karachi Division, Sindh, Pakistan</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <i class="fas fa-envelope text-[#0066ff] text-xl mt-1 w-6"></i>
+            <div>
+                <span class="text-gray-500 text-sm">Email</span>
+                <a href="mailto:samreeenfatima11@gmail.com" class="font-semibold text-lg text-white hover:text-[#0066ff] break-all transition-colors duration-300">samreeenfatima11@gmail.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Card -->
+    <div class="card rounded-2xl p-8 sm:p-10 mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-[#0066ff]">Skills</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <div class="skill-card">
+                <i class="fab fa-html5 text-[#0066ff] text-xl"></i>
+                <span class="font-semibold">HTML5</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-css3-alt text-[#0066ff] text-xl"></i>
+                <span class="font-semibold">CSS3</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js text-[#0066ff] text-xl"></i>
+                <span class="font-semibold">JavaScript</span>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-bootstrap text-[#0066ff] text-xl"></i>
+                <span class="font-semibold">Bootstrap</span>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-wind text-[#0066ff] text-xl"></i>
+                <span class="font-semibold">Tailwind</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connect Card -->
+    <div class="card rounded-2xl p-8 sm:p-10">
+        <h2 class="text-2xl font-bold mb-4 text-[#0066ff]">Connect</h2>
+        <div class="flex gap-5">
+            <a href="https://github.com/SamreenFatima919666/SamreenFatima919666" target="_blank" class="text-2xl text-gray-400 hover:text-[#0066ff] transition">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/samreen-fatima-a4411337a/" target="_blank" class="text-2xl text-gray-400 hover:text-[#0066ff] transition">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:samreeenfatima11@gmail.com" class="text-2xl text-gray-400 hover:text-[#0066ff] transition">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Print Button -->
+    <div class="no-print text-center mt-10">
+        <button onclick="window.print()" class="inline-flex items-center gap-2 px-7 py-3.5 btn-primary text-sm font-semibold text-white rounded-lg">
+            <i class="fas fa-print"></i>
+            Print / Save as PDF
+        </button>
+    </div>
+
+</div>
+
+<script>
+    const cursorGlow = document.getElementById('cursorGlow');
+    document.addEventListener('mousemove', (e) => {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top = e.clientY + 'px';
+    });
+</script>
+</body>
+</html>
